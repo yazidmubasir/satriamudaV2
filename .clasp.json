@@ -1,15 +1,18 @@
 {
   "scriptId": "178fD7jNzQRu8O-wZwTvu0x1AsQ2gVOtf9DVwQVch21QDGAXvzCRjDH70",
   "rootDir": "",
-  "scriptExtensions": [
-    ".gs"
+  "scriptExtensions": [".gs"],
+  "htmlExtensions": [".html"],
+  "jsonExtensions": [".json"],
+  "filePushOrder": [
+    "Code.gs",
+    "m7kaih.gs",
+    "m7kaih.html",
+    "mbelajarmandiri.gs",
+    "mbelajarmandiri.html",
+    "mliterasi.gs",
+    "mliterasi.html",
+    "z_module_entry.gs"
   ],
-  "htmlExtensions": [
-    ".html"
-  ],
-  "jsonExtensions": [
-    ".json"
-  ],
-  "filePushOrder": [],
   "skipSubdirectories": false
 }
