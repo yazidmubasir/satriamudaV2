@@ -55,11 +55,11 @@ function classConfig_(id){const c=findClass_(id),ss=SpreadsheetApp.openById(c.sp
 function activateModule_(s,cid,mid){const c=findClass_(cid),ss=SpreadsheetApp.openById(c.spreadsheet_id),m=read_(master_().getSheetByName('MASTER_MODUL')).rows.find(r=>String(r[0])===String(mid));if(!m)throw new Error('Modul tidak ditemukan.');const mo=obj_(MASTER.MASTER_MODUL,m);if(!ss.getSheetByName(mo.sheet_name))throw new Error('Buat sheet '+mo.sheet_name+' terlebih dahulu.');const cfg=ss.getSheetByName('SATRIA_CONFIG')||ss.insertSheet('SATRIA_CONFIG');if(cfg.getLastRow()===0)cfg.getRange('A1:B2').setValues([['key','value'],['active_modules','[]']]);let a=[];try{a=JSON.parse(String(cfg.getRange('B2').getValue()||'[]'));}catch(e){}if(!a.includes(mid))a.push(mid);cfg.getRange('B2').setValue(JSON.stringify(a));cfg.hideSheet();return{ok:true,activeModules:a};}
 function readClassTable_(cid,name){const c=findClass_(cid),sh=SpreadsheetApp.openById(c.spreadsheet_id).getSheetByName(name);if(!sh)throw new Error('Sheet tidak ditemukan.');const t=read_(sh);return{headers:t.headers,rows:t.rows.map(r=>obj_(t.headers,r))};}
 function writeClassRow_(cid,name,row){const c=findClass_(cid),sh=SpreadsheetApp.openById(c.spreadsheet_id).getSheetByName(name);if(!sh)throw new Error('Sheet tidak ditemukan.');const h=read_(sh).headers;sh.appendRow(h.map(k=>row[k]===undefined?'':row[k]));return{ok:true};}
-<<<<<<< HEAD
+
 function deleteClassRow_(cid,name,n){const c=findClass_(cid),sh=SpreadsheetApp.openById(c.spreadsheet_id).getSheetByName(name);if(!sh)throw new Error('Sheet tidak ditemukan.');sh.deleteRow(Number(n));return{ok:true};}
-=======
+
 function deleteClassRow_(s,cid,name,n){classAccess_(s,cid);const c=findClass_(cid),sh=SpreadsheetApp.openById(c.spreadsheet_id).getSheetByName(name);if(!sh)throw new Error('Sheet tidak ditemukan.');sh.deleteRow(Number(n));return{ok:true};}
->>>>>>> 650e7c9010e098745bb41f3bfcf95d80210e952f
+
 function aggregate_(){return read_(master_().getSheetByName('MASTER_KELAS')).rows.map(r=>{const c=obj_(MASTER.MASTER_KELAS,r);try{const ss=SpreadsheetApp.openById(c.spreadsheet_id);return{id_kelas:c.id_kelas,nama_kelas:c.nama_kelas,spreadsheet_id:c.spreadsheet_id,sheets:ss.getSheets().map(x=>({name:x.getName(),rows:x.getLastRow(),columns:x.getLastColumn()}))};}catch(e){return{id_kelas:c.id_kelas,nama_kelas:c.nama_kelas,error:e.message};}});}
 function classBySpreadsheet_(id){const r=read_(master_().getSheetByName('MASTER_KELAS')).rows.find(x=>String(x[3])===String(id));return r?obj_(MASTER.MASTER_KELAS,r):null;}
 function dashboard_(s){if(s.role==='owner')return{role:s.role,classes:read_(master_().getSheetByName('MASTER_KELAS')).rows.length,users:read_(master_().getSheetByName('MASTER_USERS')).rows.length,modules:read_(master_().getSheetByName('MASTER_MODUL')).rows.length};const c=findClass_(s.id_kelas);return{role:s.role,className:c?c.nama_kelas:'',spreadsheetId:c?c.spreadsheet_id:''};}
