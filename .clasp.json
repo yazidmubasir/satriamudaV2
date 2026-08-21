@@ -6,12 +6,12 @@
   "jsonExtensions": [".json"],
   "filePushOrder": [
     "Code.gs",
-    "m7kaih.gs",
-    "m7kaih.html",
-    "mbelajarmandiri.gs",
-    "mbelajarmandiri.html",
-    "mliterasi.gs",
-    "mliterasi.html",
+    "m7kaih_backend.gs",
+    "mbelajarmandiri_backend.gs",
+    "mliterasi_backend.gs",
+    "m7kaih_frontend.html",
+    "mbelajarmandiri_frontend.html",
+    "mliterasi_frontend.html",
     "z_module_entry.gs"
   ],
   "skipSubdirectories": false
