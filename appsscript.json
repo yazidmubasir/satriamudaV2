@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "timeZone": "Asia/Jakarta",
   "dependencies": {},
@@ -12,3 +13,6 @@
     "access": "ANYONE_ANONYMOUS"
   }
 }
+=======
+{"timeZone":"Asia/Jakarta","dependencies":{},"exceptionLogging":"STACKDRIVER","runtimeVersion":"V8","oauthScopes":["https://www.googleapis.com/auth/spreadsheets","https://www.googleapis.com/auth/script.container.ui"],"webapp":{"executeAs":"USER_DEPLOYING","access":"ANYONE_ANONYMOUS"}}
+>>>>>>> 650e7c9010e098745bb41f3bfcf95d80210e952f
