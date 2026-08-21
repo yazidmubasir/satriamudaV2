@@ -1,6 +1,6 @@
-# SATRIA Builder: Apps Script uses .gs + .html only
 *.js
 *.ts
 node_modules/**
 .git/**
 .clasp.state.json
+.DS_Store
